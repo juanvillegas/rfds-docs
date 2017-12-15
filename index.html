@@ -250,6 +250,28 @@
               </ul>
           </li>
           <li>
+            <a href="#incident-vital-signs" class="toc-h1 toc-link" data-title="Incident Vital Signs">Incident Vital Signs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-vital-signs" class="toc-h2 toc-link" data-title="Retrieve Vital Signs">Retrieve Vital Signs</a>
+                  </li>
+                  <li>
+                    <a href="#create-vital-signs" class="toc-h2 toc-link" data-title="Create Vital Signs">Create Vital Signs</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#incident-obstetrics" class="toc-h1 toc-link" data-title="Incident Obstetrics">Incident Obstetrics</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-obstetrics" class="toc-h2 toc-link" data-title="Retrieve Obstetrics">Retrieve Obstetrics</a>
+                  </li>
+                  <li>
+                    <a href="#create-obstetrics" class="toc-h2 toc-link" data-title="Create Obstetrics">Create Obstetrics</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#patients" class="toc-h1 toc-link" data-title="Patients">Patients</a>
               <ul class="toc-list-h2">
                   <li>
@@ -520,10 +542,6 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
   -X DELETE
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-
 <p>This endpoint deletes a specific Incident.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE HOST/incidents/&lt;ID&gt;</code></p>
@@ -539,7 +557,177 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <td>The ID of the Incident to delete</td>
 </tr>
 </tbody></table>
-<h1 id='patients'>Patients</h1><h2 id='patients-collection'>Patients Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients"</span>
+<h1 id='incident-vital-signs'>Incident Vital Signs</h1><h2 id='retrieve-vital-signs'>Retrieve Vital Signs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/vital-signs/1"</span>
+  -H <span class="s2">"Authorization: Bearer token"</span>
+</code></pre>
+<p>Retrieves Vital Signs for the given Incident.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET HOST/incidents/{incident_id}/vital-signs/{vital_signs_id}</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+</tr>
+<tr>
+<td>vital_signs_id</td>
+<td>Vital Signs ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"incident_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"patient_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blood_pressure_high"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blood_pressure_low"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fio2"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"heart_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respiratory_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rhytm"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcs"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blood_sugars"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cewt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"o2_saturation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckham Duffy"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"pain_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-03T14:42:30+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-vital-signs'>Create Vital Signs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/vital-signs"</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer token"</span>
+</code></pre>
+<blockquote>
+<p>Example request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"patient_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blood_pressure_high"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blood_pressure_low"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"temperature"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fio2"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"heart_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respiratory_rate"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rhytm"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcs"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"blood_sugars"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cewt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"o2_saturation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pain_score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates Vital Signs for the given Incident</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+</tr>
+</tbody></table>
+<h1 id='incident-obstetrics'>Incident Obstetrics</h1><h2 id='retrieve-obstetrics'>Retrieve Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics/1"</span>
+  -H <span class="s2">"Authorization: Bearer token"</span>
+</code></pre>
+<p>Retrieves Obstetrics for the given Incident.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id}</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+</tr>
+<tr>
+<td>obstetrics_id</td>
+<td>Obstetrics ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"incident_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"patient_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fhr"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fm_high"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fm_low"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cont_frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pv_loss"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mewts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cont_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckham Duffy"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-12T00:00:00+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-obstetrics'>Create Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics"</span>
+  -X POST
+  -H <span class="s2">"Authorization: Bearer token"</span>
+</code></pre>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"patient_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fhr"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fm_high"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fm_low"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cont_frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pv_loss"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mewts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cont_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Creates Vital Signs for the given Incident</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Example Response 422:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The given data was invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"patient_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"The patient id field is required."</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='patients'>Patients</h1><h2 id='patients-collection'>Patients Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
