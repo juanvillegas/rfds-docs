@@ -212,8 +212,6 @@ curl "HOST/api/v1/incidents/1"
   -H "Authorization: Bearer token"
 ```
 
-> The above command returns JSON structured like this:
-
 This endpoint deletes a specific Incident.
 
 ### HTTP Request
@@ -225,3 +223,177 @@ This endpoint deletes a specific Incident.
 Parameter | Description
 --------- | -----------
 ID | The ID of the Incident to delete
+
+# Incident Vital Signs
+
+## Retrieve Vital Signs
+
+```shell
+curl "HOST/api/v1/incidents/1/vital-signs/1"
+  -H "Authorization: Bearer token"
+```
+Retrieves Vital Signs for the given Incident.
+
+### HTTP Request
+
+`GET HOST/incidents/{incident_id}/vital-signs/{vital_signs_id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+incident_id | Incident ID
+vital_signs_id | Vital Signs ID
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "incident_id": 1,
+    "patient_id": 1,
+    "blood_pressure_high": 100,
+    "blood_pressure_low": 90,
+    "temperature": 14,
+    "fio2": 12,
+    "heart_rate": null,
+    "respiratory_rate": null,
+    "rhytm": null,
+    "gcs": null,
+    "blood_sugars": null,
+    "cewt": null,
+    "o2_saturation": null,
+    "user": {
+        "name": "Buckham Duffy"
+    },
+    "pain_score": null,
+    "created_at": "2017-12-03T14:42:30+00:00"
+}
+```
+
+## Create Vital Signs
+
+```shell
+curl "HOST/api/v1/incidents/1/vital-signs"
+  -X POST
+  -H "Authorization: Bearer token"
+```
+
+> Example request
+
+```json
+{
+    "patient_id": 1,
+    "blood_pressure_high": 100,
+    "blood_pressure_low": 90,
+    "temperature": 14,
+    "fio2": 12,
+    "heart_rate": 1,
+    "respiratory_rate": 1,
+    "rhytm": 1,
+    "gcs": 1,
+    "blood_sugars": 1,
+    "cewt": 1,
+    "o2_saturation": 1,
+    "pain_score": 1
+}
+```
+Creates Vital Signs for the given Incident
+
+### HTTP Request
+
+`POST HOST/incidents/{incident_id}/vital-signs`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+incident_id | Incident ID
+
+
+# Incident Obstetrics
+
+## Retrieve Obstetrics
+
+```shell
+curl "HOST/api/v1/incidents/1/obstetrics/1"
+  -H "Authorization: Bearer token"
+```
+Retrieves Obstetrics for the given Incident.
+
+### HTTP Request
+
+`GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+incident_id | Incident ID
+obstetrics_id | Obstetrics ID
+
+> Example response:
+
+```json
+{
+    "incident_id": 1,
+    "patient_id": 1,
+    "fhr": 1,
+    "fm_high": 1,
+    "fm_low": 1,
+    "cont_frequency": 1,
+    "pv_loss": 1,
+    "mewts": 1,
+    "cont_duration": 1,
+    "user": {
+        "name": "Buckham Duffy"
+    },
+    "created_at": "2017-12-12T00:00:00+00:00"
+}
+```
+
+## Create Obstetrics
+
+```shell
+curl "HOST/api/v1/incidents/1/obstetrics"
+  -X POST
+  -H "Authorization: Bearer token"
+```
+
+> Example request:
+
+```json
+{
+    "patient_id": 1,
+    "fhr": 1,
+    "fm_high": 1,
+    "fm_low": 1,
+    "cont_frequency": 1,
+    "pv_loss": 1,
+    "mewts": 1,
+    "cont_duration": 1
+}
+```
+Creates Vital Signs for the given Incident
+
+### HTTP Request
+
+`POST HOST/incidents/{incident_id}/vital-signs`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+incident_id | Incident ID
+
+> Example Response 422:
+
+```json
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "patient_id": [
+            "The patient id field is required."
+        ]
+    }
+}
+```
