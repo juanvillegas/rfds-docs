@@ -1,6 +1,6 @@
 # Patients
 
-## Collection
+## Patients Collection
 
 ```shell
 curl "HOST/api/v1/patients"
@@ -100,7 +100,7 @@ Retrieves a collection of Patients
 
 `GET HOST/api/v1/patients`
 
-## Single
+## Single Patient
 
 ```shell
 curl "HOST/api/v1/patients/1"
@@ -196,7 +196,7 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the Patient to retrieve
 
-## Delete
+## Delete Patient
 
 ```shell
 curl "HOST/api/v1/patients/1"

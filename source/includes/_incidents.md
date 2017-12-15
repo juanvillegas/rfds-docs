@@ -1,6 +1,6 @@
 # Incidents
 
-## Collection
+## Incidents Collection
 
 ```shell
 curl "HOST/api/v1/incidents"
@@ -108,7 +108,7 @@ Parameter | Default | Description
 search | - | If provided, a search will be performed using `search` as keyword.
 per_page | 10 | The maximum number of records to be returned on each request.
 
-## Single
+## Single Incident
 
 ```shell
 curl "HOST/api/v1/incidents/1"
@@ -204,7 +204,7 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the Incident to retrieve
 
-## Delete
+## Delete Incident
 
 ```shell
 curl "HOST/api/v1/incidents/1"
