@@ -239,13 +239,13 @@
             <a href="#incidents" class="toc-h1 toc-link" data-title="Incidents">Incidents</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#collection" class="toc-h2 toc-link" data-title="Collection">Collection</a>
+                    <a href="#incidents-collection" class="toc-h2 toc-link" data-title="Incidents Collection">Incidents Collection</a>
                   </li>
                   <li>
-                    <a href="#single" class="toc-h2 toc-link" data-title="Single">Single</a>
+                    <a href="#single-incident" class="toc-h2 toc-link" data-title="Single Incident">Single Incident</a>
                   </li>
                   <li>
-                    <a href="#delete" class="toc-h2 toc-link" data-title="Delete">Delete</a>
+                    <a href="#delete-incident" class="toc-h2 toc-link" data-title="Delete Incident">Delete Incident</a>
                   </li>
               </ul>
           </li>
@@ -253,13 +253,13 @@
             <a href="#patients" class="toc-h1 toc-link" data-title="Patients">Patients</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#collection" class="toc-h2 toc-link" data-title="Collection">Collection</a>
+                    <a href="#patients-collection" class="toc-h2 toc-link" data-title="Patients Collection">Patients Collection</a>
                   </li>
                   <li>
-                    <a href="#single" class="toc-h2 toc-link" data-title="Single">Single</a>
+                    <a href="#single-patient" class="toc-h2 toc-link" data-title="Single Patient">Single Patient</a>
                   </li>
                   <li>
-                    <a href="#delete" class="toc-h2 toc-link" data-title="Delete">Delete</a>
+                    <a href="#delete-patient" class="toc-h2 toc-link" data-title="Delete Patient">Delete Patient</a>
                   </li>
               </ul>
           </li>
@@ -310,7 +310,7 @@ For example, to use the <em>/incidents</em> endpoint, the request should be made
 of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/some/endpoint"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre><h1 id='incidents'>Incidents</h1><h2 id='collection'>Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents"</span>
+</code></pre><h1 id='incidents'>Incidents</h1><h2 id='incidents-collection'>Incidents Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
@@ -422,7 +422,7 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <td>The maximum number of records to be returned on each request.</td>
 </tr>
 </tbody></table>
-<h2 id='single'>Single</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1"</span>
+<h2 id='single-incident'>Single Incident</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
@@ -516,7 +516,7 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <td>The ID of the Incident to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete'>Delete</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1"</span>
+<h2 id='delete-incident'>Delete Incident</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1"</span>
   -X DELETE
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
@@ -539,7 +539,7 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <td>The ID of the Incident to delete</td>
 </tr>
 </tbody></table>
-<h1 id='patients'>Patients</h1><h2 id='collection'>Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients"</span>
+<h1 id='patients'>Patients</h1><h2 id='patients-collection'>Patients Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
@@ -631,7 +631,7 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <p>Retrieves a collection of Patients</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET HOST/api/v1/patients</code></p>
-<h2 id='single'>Single</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients/1"</span>
+<h2 id='single-patient'>Single Patient</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients/1"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
@@ -725,7 +725,7 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <td>The ID of the Patient to retrieve</td>
 </tr>
 </tbody></table>
-<h2 id='delete'>Delete</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients/1"</span>
+<h2 id='delete-patient'>Delete Patient</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients/1"</span>
   -X DELETE
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
