@@ -11,6 +11,7 @@ includes:
   - intro
   - incidents
   - patients
+  - models
   - errors
 
 search: true

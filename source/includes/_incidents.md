@@ -103,10 +103,24 @@ Get a collection of Incidents, optionally filtered by a search value.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-search | - | If provided, a search will be performed using `search` as keyword.
-per_page | 10 | The maximum number of records to be returned on each request.
+| Parameter | Default | Description                                                        |
+| --------- | ------- | -----------                                                        |
+| search    | -       | If provided, a search will be performed using `search` as keyword. |
+| per_page  | 10      | The maximum number of records to be returned on each request.      |
+
+### Response Fields
+
+| Field                        | Type    | Description |
+| ---------                    | ------- | ----------- |
+| id                           | integer | -           |
+| coordinator_name             | string  | -           |
+| coordinator_surname          | string  | -           |
+| coordinator_phone            | string  | -           |
+| coordinator_designation_code | string  | -           |
+| coordinator_facility         | string  | -           |
+| created_by                   | integer | -           |
+| updated_by                   | integer | -           |
+
 
 ## Single Incident
 
@@ -200,9 +214,9 @@ Retrieves a particular Incident
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the Incident to retrieve
+| Parameter | Description                        |
+| --------- | -----------                        |
+| ID        | The ID of the Incident to retrieve |
 
 ## Delete Incident
 
@@ -220,9 +234,9 @@ This endpoint deletes a specific Incident.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the Incident to delete
+| Parameter | Description                      |
+| --------- | -----------                      |
+| ID        | The ID of the Incident to delete |
 
 # Incident Vital Signs
 
@@ -236,14 +250,17 @@ Retrieves Vital Signs for the given Incident.
 
 ### HTTP Request
 
-`GET HOST/incidents/{incident_id}/vital-signs/{vital_signs_id}`
+`GET HOST/incidents/{incident_id}/vital-signs/{vital_signs_id?}`
+
+If _vital_signs_id_ is not provided, the latest Vital Signs records available for the Incident 
+will be returned.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-incident_id | Incident ID
-vital_signs_id | Vital Signs ID
+| Parameter      | Description    | Required   |
+| ---------      | -----------    | ---------- |
+| incident_id    | Incident ID    | Yes        |
+| vital_signs_id | Vital Signs ID | No         |
 
 > The above command returns JSON structured like this:
 
@@ -255,16 +272,25 @@ vital_signs_id | Vital Signs ID
     "blood_pressure_low": 90,
     "temperature": 14,
     "fio2": 12,
-    "heart_rate": null,
     "respiratory_rate": null,
     "rhytm": null,
     "gcs": null,
+    "gcs_e": null,
+    "gcs_v": null,
+    "gcs_m": null,
+    "heart_rate": null,
     "blood_sugars": null,
     "cewt": null,
     "o2_saturation": null,
     "user": {
         "name": "Buckham Duffy"
     },
+    "normal_sys_bp": null,
+    "o2_flow_rate": null,
+    "consciousness": null,
+    "respiratory_distress": null,
+    "capillary_refill_time": null,
+    "observation_time": null,
     "pain_score": null,
     "created_at": "2017-12-03T14:42:30+00:00"
 }
@@ -305,10 +331,44 @@ Creates Vital Signs for the given Incident
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-incident_id | Incident ID
+| Parameter                    | Description |
+| ---------                    | ----------- |
+| contact_method               | string(100) |
+| coordinator_name             | string(191) |
+| coordinator_surname          | string(191) |
+| coordinator_phone            | string(191) |
+| coordinator_designation_code | string(191) |
+| coordinator_facility         | string(191) |
+| created_by                   | integer     |
+| updated_by                   | integer     |
+| escort_weight                | integer     |
+| evac_code                    | string(191) |
+| evac_decision_datetime       | datetime    |
+| flight_priority              | integer     |
+| initiated_by                 | string(255) |
+| incident_datetime            | datetime    |
+| patient_evacuated            | boolean     |
+| originating_facility         | string(255) |
+| patient_escorted             | boolean     |
+| receiving_facility           | string(255) |
+| reporter_name                | string(191) |
+| reporter_surname             | string(191) |
+| reporter_phone               | string(191) |
+| reporter_designation_code    | string(191) |
+| reporter_facility            | string(191) |
+| rsq_number                   | string(191) |
+| escort_given_name            | string(191) |
+| escort_surname               | string(191) |
+| atr_number                   | string(255) |
+| tcr_number                   | string(255) |
+| afr_number                   | string(255) |
 
+
+## Retrieve History
+//TODO
+
+## Retrieve Complete History
+//TODO
 
 # Incident Obstetrics
 
@@ -326,10 +386,10 @@ Retrieves Obstetrics for the given Incident.
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-incident_id | Incident ID
-obstetrics_id | Obstetrics ID
+| Parameter     | Description   |
+| ---------     | -----------   |
+| incident_id   | Incident ID   |
+| obstetrics_id | Obstetrics ID |
 
 > Example response:
 
@@ -381,9 +441,9 @@ Creates Vital Signs for the given Incident
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-incident_id | Incident ID
+| Parameter   | Description |
+| ---------   | ----------- |
+| incident_id | Incident ID |
 
 > Example Response 422:
 
