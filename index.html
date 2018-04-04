@@ -272,9 +272,6 @@
                   <li>
                     <a href="#retrieve-history" class="toc-h2 toc-link" data-title="Retrieve History">Retrieve History</a>
                   </li>
-                  <li>
-                    <a href="#retrieve-complete-history" class="toc-h2 toc-link" data-title="Retrieve Complete History">Retrieve Complete History</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -282,6 +279,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#retrieve-obstetrics" class="toc-h2 toc-link" data-title="Retrieve Obstetrics">Retrieve Obstetrics</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-obstetrics-history" class="toc-h2 toc-link" data-title="Retrieve Obstetrics History">Retrieve Obstetrics History</a>
                   </li>
                   <li>
                     <a href="#create-obstetrics" class="toc-h2 toc-link" data-title="Create Obstetrics">Create Obstetrics</a>
@@ -985,8 +985,6 @@ will be returned.</p>
 </tbody></table>
 <h2 id='retrieve-history'>Retrieve History</h2>
 <p>//TODO</p>
-<h2 id='retrieve-complete-history'>Retrieve Complete History</h2>
-<p>//TODO</p>
 <h1 id='incident-obstetrics'>Incident Obstetrics</h1><h2 id='retrieve-obstetrics'>Retrieve Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics/1"</span>
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
@@ -1028,7 +1026,49 @@ will be returned.</p>
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-12T00:00:00+00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='create-obstetrics'>Create Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics"</span>
+</span></code></pre><h2 id='retrieve-obstetrics-history'>Retrieve Obstetrics History</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics/history"</span>
+  -H <span class="s2">"Authorization: Bearer token"</span>
+</code></pre>
+<p>Retrieves Obstetrics History for the given Incident.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET HOST/incidents/{incident_id}/obstetrics/history</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Values</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>format</td>
+<td>full, compact</td>
+<td>compact</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>integer [1, +]</td>
+<td>10</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer [1, +]</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h2 id='create-obstetrics'>Create Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics"</span>
   -X POST
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
@@ -1047,9 +1087,9 @@ will be returned.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Creates Vital Signs for the given Incident</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
-<h3 id='url-parameters-8'>URL Parameters</h3>
+<h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
