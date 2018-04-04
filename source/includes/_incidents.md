@@ -248,9 +248,9 @@ This endpoint deletes a specific Incident.
 
 ### URL Parameters
 
-| Parameter      | Description    | Required   |
-| ---------      | -----------    | ---------- |
-| incident_id    | Incident ID    | Yes        |
+| Parameter   | Description | Required   |
+| ---------   | ----------- | ---------- |
+| incident_id | Incident ID | Yes        |
 
 ### Response Fields
 
@@ -274,9 +274,9 @@ The response will be an array, where each member contains the following fields:
 
 ### URL Parameters
 
-| Parameter      | Description    | Required   |
-| ---------      | -----------    | ---------- |
-| incident_id    | Incident ID    | Yes        |
+| Parameter   | Description | Required   |
+| ---------   | ----------- | ---------- |
+| incident_id | Incident ID | Yes        |
 
 ### Response Fields
 
@@ -421,9 +421,6 @@ Creates Vital Signs for the given Incident
 ## Retrieve History
 //TODO
 
-## Retrieve Complete History
-//TODO
-
 # Incident Obstetrics
 
 ## Retrieve Obstetrics
@@ -464,6 +461,32 @@ Retrieves Obstetrics for the given Incident.
     "created_at": "2017-12-12T00:00:00+00:00"
 }
 ```
+
+## Retrieve Obstetrics History
+
+```shell
+curl "HOST/api/v1/incidents/1/obstetrics/history"
+  -H "Authorization: Bearer token"
+```
+Retrieves Obstetrics History for the given Incident.
+
+### HTTP Request
+
+`GET HOST/incidents/{incident_id}/obstetrics/history`
+
+### URL Parameters
+
+| Parameter   | Description |
+| ---------   | ----------- |
+| incident_id | Incident ID |
+
+### Request Parameters
+
+| Parameter | Values         | Default |
+| --------- | -----------    | ------- |
+| format    | full, compact  | compact |
+| per_page  | integer [1, +] | 10      |
+| page      | integer [1, +] | 1       |
 
 ## Create Obstetrics
 
