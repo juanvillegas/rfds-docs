@@ -733,43 +733,35 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <tr>
 <th>Field</th>
 <th>Type</th>
-<th>Required</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>dosage</td>
 <td>decimal(8,4)</td>
-<td>Yes</td>
 </tr>
 <tr>
 <td>medication_name</td>
 <td>string(191)</td>
-<td>Yes</td>
 </tr>
 <tr>
 <td>administered_at</td>
 <td>datetime</td>
-<td>No</td>
 </tr>
 <tr>
 <td>administered_by</td>
 <td>string(191)</td>
-<td>No</td>
 </tr>
 <tr>
 <td>prescribed_by</td>
 <td>string(191)</td>
-<td>No</td>
 </tr>
 <tr>
 <td>route</td>
 <td>string(191)</td>
-<td>No</td>
 </tr>
 <tr>
 <td>unit</td>
 <td>string(191)</td>
-<td>No</td>
 </tr>
 </tbody></table>
 <h1 id='incident-vital-signs'>Incident Vital Signs</h1><h2 id='retrieve-vital-signs'>Retrieve Vital Signs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/vital-signs/1"</span>
@@ -860,6 +852,20 @@ will be returned.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -990,23 +996,12 @@ will be returned.</p>
 </code></pre>
 <p>Retrieves Obstetrics for the given Incident.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id}</code></p>
+<p><code>GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id?}</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>incident_id</td>
-<td>Incident ID</td>
-</tr>
-<tr>
-<td>obstetrics_id</td>
-<td>Obstetrics ID</td>
-</tr>
-</tbody></table>
+<p>| Parameter   | Description |  |
+| ---------   | ----------- |  |
+| incident_id | Required.   |  |
+| obstetrics_id | Optional. If none is provided, the latest Obstetrics record for the Incident will be returned. |</p>
 
 <blockquote>
 <p>Example response:</p>
@@ -1044,7 +1039,7 @@ will be returned.</p>
 <td>Incident ID</td>
 </tr>
 </tbody></table>
-<h3 id='request-parameters'>Request Parameters</h3>
+<h3 id='request-parameters-2'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1068,6 +1063,93 @@ will be returned.</p>
 <td>1</td>
 </tr>
 </tbody></table>
+<h3 id='response-fields-4'>Response Fields</h3>
+<p>If format <strong>compact</strong> was specified, the response will be an array, where each member contains 
+the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+</tr>
+</tbody></table>
+
+<p>If format <strong>full</strong> was specified, the response will be an array, where each member contains 
+the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>incident_id</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>patient_id</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>cont_duration</td>
+<td>double</td>
+</tr>
+<tr>
+<td>cont_frequency_low</td>
+<td>string(255)</td>
+</tr>
+<tr>
+<td>cont_frequency_high</td>
+<td>string(255)</td>
+</tr>
+<tr>
+<td>fhr</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>fm</td>
+<td>string(255)</td>
+</tr>
+<tr>
+<td>user</td>
+<td>array</td>
+</tr>
+<tr>
+<td>mewts</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>pv_loss</td>
+<td>string(255)</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+</tr>
+</tbody></table>
+
+<p><strong>user</strong> is an object containing the following fields:</p>
+
+<p>| Field | Type   |
+| name  | string |</p>
 <h2 id='create-obstetrics'>Create Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics"</span>
   -X POST
   -H <span class="s2">"Authorization: Bearer token"</span>
