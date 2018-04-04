@@ -238,6 +238,60 @@ This endpoint deletes a specific Incident.
 | --------- | -----------                      |
 | ID        | The ID of the Incident to delete |
 
+# Incident Medication
+
+## Retrieve Medication Chart
+
+### HTTP Request
+
+`GET HOST/incidents/{incident_id}/medication-chart`
+
+### URL Parameters
+
+| Parameter      | Description    | Required   |
+| ---------      | -----------    | ---------- |
+| incident_id    | Incident ID    | Yes        |
+
+### Response Fields
+
+The response will be an array, where each member contains the following fields:
+
+| Field           | Type         | Description |
+| ---------       | -------      | ----------- |
+| administered_at | datetime     | -           |
+| administered_by | string(191)  | -           |
+| dosage          | decimal(8,4) | -           |
+| medication_name | string(191)  | -           |
+| prescribed_by   | string(191)  | -           |
+| route           | string(191)  | -           |
+| unit            | string(191)  | -           |
+
+## Create Medication
+
+### HTTP Request
+
+`POST HOST/incidents/{incident_id}/medication-chart`
+
+### URL Parameters
+
+| Parameter      | Description    | Required   |
+| ---------      | -----------    | ---------- |
+| incident_id    | Incident ID    | Yes        |
+
+### Response Fields
+
+The response will be an array, where each member contains the following fields:
+
+| Field           | Type         | Required    |
+| ---------       | -------      | ----------- |
+| dosage          | decimal(8,4) | Yes         |
+| medication_name | string(191)  | Yes         |
+| administered_at | datetime     | No          |
+| administered_by | string(191)  | No          |
+| prescribed_by   | string(191)  | No          |
+| route           | string(191)  | No          |
+| unit            | string(191)  | No          |
+
 # Incident Vital Signs
 
 ## Retrieve Vital Signs
