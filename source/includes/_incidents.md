@@ -526,6 +526,7 @@ the following fields:
 **user** is an object containing the following fields:
 
 | Field | Type   |
+|-------|--------|
 | name  | string |
 
 ## Create Obstetrics
