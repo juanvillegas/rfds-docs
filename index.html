@@ -250,6 +250,17 @@
               </ul>
           </li>
           <li>
+            <a href="#incident-medication" class="toc-h1 toc-link" data-title="Incident Medication">Incident Medication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#retrieve-medication-chart" class="toc-h2 toc-link" data-title="Retrieve Medication Chart">Retrieve Medication Chart</a>
+                  </li>
+                  <li>
+                    <a href="#create-medication" class="toc-h2 toc-link" data-title="Create Medication">Create Medication</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#incident-vital-signs" class="toc-h1 toc-link" data-title="Incident Vital Signs">Incident Vital Signs</a>
               <ul class="toc-list-h2">
                   <li>
@@ -317,7 +328,7 @@
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#response-amp-error-codes" class="toc-h1 toc-link" data-title="Response &amp; Error Codes">Response &amp; Error Codes</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -637,16 +648,140 @@ of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <td>The ID of the Incident to delete</td>
 </tr>
 </tbody></table>
+<h1 id='incident-medication'>Incident Medication</h1><h2 id='retrieve-medication-chart'>Retrieve Medication Chart</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET HOST/incidents/{incident_id}/medication-chart</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='response-fields-2'>Response Fields</h3>
+<p>The response will be an array, where each member contains the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>administered_at</td>
+<td>datetime</td>
+<td>-</td>
+</tr>
+<tr>
+<td>administered_by</td>
+<td>string(191)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dosage</td>
+<td>decimal(8,4)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>medication_name</td>
+<td>string(191)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>prescribed_by</td>
+<td>string(191)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>route</td>
+<td>string(191)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>string(191)</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id='create-medication'>Create Medication</h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST HOST/incidents/{incident_id}/medication-chart</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Incident ID</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h3 id='response-fields-3'>Response Fields</h3>
+<p>The response will be an array, where each member contains the following fields:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>dosage</td>
+<td>decimal(8,4)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>medication_name</td>
+<td>string(191)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>administered_at</td>
+<td>datetime</td>
+<td>No</td>
+</tr>
+<tr>
+<td>administered_by</td>
+<td>string(191)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>prescribed_by</td>
+<td>string(191)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>route</td>
+<td>string(191)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>unit</td>
+<td>string(191)</td>
+<td>No</td>
+</tr>
+</tbody></table>
 <h1 id='incident-vital-signs'>Incident Vital Signs</h1><h2 id='retrieve-vital-signs'>Retrieve Vital Signs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/vital-signs/1"</span>
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
 <p>Retrieves Vital Signs for the given Incident.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET HOST/incidents/{incident_id}/vital-signs/{vital_signs_id?}</code></p>
 
 <p>If <em>vital_signs_id</em> is not provided, the latest Vital Signs records available for the Incident 
 will be returned.</p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -722,9 +857,9 @@ will be returned.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Creates Vital Signs for the given Incident</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -856,9 +991,9 @@ will be returned.</p>
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
 <p>Retrieves Obstetrics for the given Incident.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id}</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -912,9 +1047,9 @@ will be returned.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Creates Vital Signs for the given Incident</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1483,7 +1618,7 @@ For this field, the following examples represent valid values: <strong>1, 1.1, 1
 <td>-</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+<h1 id='response-amp-error-codes'>Response &amp; Error Codes</h1>
 <p>The RFDS API uses http error codes to indicate the success of the failure of the requests.</p>
 
 <table><thead>
@@ -1522,7 +1657,7 @@ For this field, the following examples represent valid values: <strong>1, 1.1, 1
 </tr>
 <tr>
 <td>422</td>
-<td>Bad Request -- Most possibly related to an invalid number of parameters provided.</td>
+<td>The request was invalid. Most probably the number of parameters or the values of the parameters was invalid. The same request shouldn&#39;t be attempted again.</td>
 </tr>
 <tr>
 <td>500</td>
