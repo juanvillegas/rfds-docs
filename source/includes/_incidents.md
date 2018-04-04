@@ -282,15 +282,15 @@ The response will be an array, where each member contains the following fields:
 
 The response will be an array, where each member contains the following fields:
 
-| Field           | Type         | Required    |
-| ---------       | -------      | ----------- |
-| dosage          | decimal(8,4) | Yes         |
-| medication_name | string(191)  | Yes         |
-| administered_at | datetime     | No          |
-| administered_by | string(191)  | No          |
-| prescribed_by   | string(191)  | No          |
-| route           | string(191)  | No          |
-| unit            | string(191)  | No          |
+| Field           | Type         |
+| ---------       | -------      |
+| dosage          | decimal(8,4) |
+| medication_name | string(191)  |
+| administered_at | datetime     |
+| administered_by | string(191)  |
+| prescribed_by   | string(191)  |
+| route           | string(191)  |
+| unit            | string(191)  |
 
 # Incident Vital Signs
 
@@ -385,6 +385,12 @@ Creates Vital Signs for the given Incident
 
 ### URL Parameters
 
+| Parameter   | Description | Required   |
+| ---------   | ----------- | ---------- |
+| incident_id | Incident ID | Yes        |
+
+### Request Parameters
+
 | Parameter                    | Description |
 | ---------                    | ----------- |
 | contact_method               | string(100) |
@@ -433,14 +439,14 @@ Retrieves Obstetrics for the given Incident.
 
 ### HTTP Request
 
-`GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id}`
+`GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id?}`
 
 ### URL Parameters
 
-| Parameter     | Description   |
-| ---------     | -----------   |
-| incident_id   | Incident ID   |
-| obstetrics_id | Obstetrics ID |
+| Parameter   | Description |  |
+| ---------   | ----------- |  |
+| incident_id | Required.   |  |
+| obstetrics_id | Optional. If none is provided, the latest Obstetrics record for the Incident will be returned. |
 
 > Example response:
 
@@ -487,6 +493,40 @@ Retrieves Obstetrics History for the given Incident.
 | format    | full, compact  | compact |
 | per_page  | integer [1, +] | 10      |
 | page      | integer [1, +] | 1       |
+
+### Response Fields
+
+If format **compact** was specified, the response will be an array, where each member contains 
+the following fields:
+
+| Field      | Type     |
+| ---------  | -------  |
+| id         | integer  |
+| created_at | datetime |
+
+If format **full** was specified, the response will be an array, where each member contains 
+the following fields:
+
+| Field               | Type        |
+| ---------           | -------     |
+| id                  | integer     |
+| incident_id         | integer     |
+| patient_id          | integer     |
+| user_id             | integer     |
+| cont_duration       | double      |
+| cont_frequency_low  | string(255) |
+| cont_frequency_high | string(255) |
+| fhr                 | integer     |
+| fm                  | string(255) |
+| user                | array       |
+| mewts               | integer     |
+| pv_loss             | string(255) |
+| created_at          | datetime    |
+
+**user** is an object containing the following fields:
+
+| Field | Type   |
+| name  | string |
 
 ## Create Obstetrics
 
