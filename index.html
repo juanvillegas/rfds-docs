@@ -817,6 +817,7 @@ will be returned.</p>
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckham Duffy"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"normal_sys_bp"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"o2_flow_delivery"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"o2_flow_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"consciousness"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"respiratory_distress"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -866,129 +867,7 @@ will be returned.</p>
 </tr>
 </tbody></table>
 <h3 id='request-parameters'>Request Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>contact_method</td>
-<td>string(100)</td>
-</tr>
-<tr>
-<td>coordinator_name</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>coordinator_surname</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>coordinator_phone</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>coordinator_designation_code</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>coordinator_facility</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>created_by</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>updated_by</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>escort_weight</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>evac_code</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>evac_decision_datetime</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>flight_priority</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>initiated_by</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>incident_datetime</td>
-<td>datetime</td>
-</tr>
-<tr>
-<td>patient_evacuated</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>originating_facility</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>patient_escorted</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>receiving_facility</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>reporter_name</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>reporter_surname</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>reporter_phone</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>reporter_designation_code</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>reporter_facility</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>rsq_number</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>escort_given_name</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>escort_surname</td>
-<td>string(191)</td>
-</tr>
-<tr>
-<td>atr_number</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>tcr_number</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>afr_number</td>
-<td>string(255)</td>
-</tr>
-</tbody></table>
+<p>See <a href="#vital-signs-record">Vital Signs Model Description</a></p>
 <h2 id='retrieve-history'>Retrieve History</h2>
 <p>//TODO</p>
 <h1 id='incident-obstetrics'>Incident Obstetrics</h1><h2 id='retrieve-obstetrics'>Retrieve Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics/1"</span>
@@ -998,10 +877,21 @@ will be returned.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET HOST/incidents/{incident_id}/obstetrics/{obstetrics_id?}</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
-<p>| Parameter   | Description |  |
-| ---------   | ----------- |  |
-| incident_id | Required.   |  |
-| obstetrics_id | Optional. If none is provided, the latest Obstetrics record for the Incident will be returned. |</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>incident_id</td>
+<td>Required.</td>
+</tr>
+<tr>
+<td>obstetrics_id</td>
+<td>Optional. If none is provided, the latest Obstetrics record for the Incident will be returned.</td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>Example response:</p>
@@ -1148,17 +1038,9 @@ the following fields:</p>
 
 <p><strong>user</strong> is an object containing the following fields:</p>
 
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>name</td>
-<td>string</td>
-</tr>
-</tbody></table>
+<p>| Field   | Type     |
+|-- ----- | ------ --|
+| name    | string   |</p>
 <h2 id='create-obstetrics'>Create Obstetrics</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics"</span>
   -X POST
   -H <span class="s2">"Authorization: Bearer token"</span>
@@ -1685,6 +1567,11 @@ the following fields:</p>
 <tr>
 <td>normal_sys_bp</td>
 <td>integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>o2_flow_delivery</td>
+<td>string(255)</td>
 <td>-</td>
 </tr>
 <tr>
