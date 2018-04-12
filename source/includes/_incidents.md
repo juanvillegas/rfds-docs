@@ -340,6 +340,7 @@ will be returned.
         "name": "Buckham Duffy"
     },
     "normal_sys_bp": null,
+    "o2_flow_delivery": "None",
     "o2_flow_rate": null,
     "consciousness": null,
     "respiratory_distress": null,
@@ -391,38 +392,7 @@ Creates Vital Signs for the given Incident
 
 ### Request Parameters
 
-| Parameter                    | Description |
-| ---------                    | ----------- |
-| contact_method               | string(100) |
-| coordinator_name             | string(191) |
-| coordinator_surname          | string(191) |
-| coordinator_phone            | string(191) |
-| coordinator_designation_code | string(191) |
-| coordinator_facility         | string(191) |
-| created_by                   | integer     |
-| updated_by                   | integer     |
-| escort_weight                | integer     |
-| evac_code                    | string(191) |
-| evac_decision_datetime       | datetime    |
-| flight_priority              | integer     |
-| initiated_by                 | string(255) |
-| incident_datetime            | datetime    |
-| patient_evacuated            | boolean     |
-| originating_facility         | string(255) |
-| patient_escorted             | boolean     |
-| receiving_facility           | string(255) |
-| reporter_name                | string(191) |
-| reporter_surname             | string(191) |
-| reporter_phone               | string(191) |
-| reporter_designation_code    | string(191) |
-| reporter_facility            | string(191) |
-| rsq_number                   | string(191) |
-| escort_given_name            | string(191) |
-| escort_surname               | string(191) |
-| atr_number                   | string(255) |
-| tcr_number                   | string(255) |
-| afr_number                   | string(255) |
-
+See [Vital Signs Model Description](#vital-signs-record)
 
 ## Retrieve History
 //TODO
@@ -443,9 +413,9 @@ Retrieves Obstetrics for the given Incident.
 
 ### URL Parameters
 
-| Parameter   | Description |  |
-| ---------   | ----------- |  |
-| incident_id | Required.   |  |
+| Parameter     | Description                                                                                    |
+| ---------     | -----------                                                                                    |
+| incident_id   | Required.                                                                                      |
 | obstetrics_id | Optional. If none is provided, the latest Obstetrics record for the Incident will be returned. |
 
 > Example response:
@@ -525,9 +495,9 @@ the following fields:
 
 **user** is an object containing the following fields:
 
-| Field | Type   |
-|-------|--------|
-| name  | string |
+| Field   | Type     |
+|-- ----- | ------ --|
+| name    | string   |
 
 ## Create Obstetrics
 

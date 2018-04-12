@@ -62,6 +62,7 @@ The following section describes some Models that are used through the API and th
 | rhytm                 | string(191)  | -           |
 | temperature           | decimal(8,4) | -           |
 | normal_sys_bp         | integer      | -           |
+| o2_flow_delivery      | string(255)  | -           |
 | o2_flow_rate          | decimal(8,4) | -           |
 | consciousness         | string(191)  | -           |
 | respiratory_distress  | string(191)  | -           |
