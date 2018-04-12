@@ -475,23 +475,7 @@ the following fields:
 | created_at | datetime |
 
 If format **full** was specified, the response will be an array, where each member contains 
-the following fields:
-
-| Field               | Type        |
-| ---------           | -------     |
-| id                  | integer     |
-| incident_id         | integer     |
-| patient_id          | integer     |
-| user_id             | integer     |
-| cont_duration       | double      |
-| cont_frequency_low  | string(255) |
-| cont_frequency_high | string(255) |
-| fhr                 | integer     |
-| fm                  | string(255) |
-| user                | array       |
-| mewts               | integer     |
-| pv_loss             | string(255) |
-| created_at          | datetime    |
+the fields indicated in the [Obstetrics Model Description](#obstetrics-record) section.
 
 **user** is an object containing the following fields:
 
