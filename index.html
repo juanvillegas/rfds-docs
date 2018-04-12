@@ -309,6 +309,9 @@
                     <a href="#incident" class="toc-h2 toc-link" data-title="Incident">Incident</a>
                   </li>
                   <li>
+                    <a href="#obstetrics-record" class="toc-h2 toc-link" data-title="Obstetrics Record">Obstetrics Record</a>
+                  </li>
+                  <li>
                     <a href="#vital-signs-record" class="toc-h2 toc-link" data-title="Vital Signs Record">Vital Signs Record</a>
                   </li>
                   <li>
@@ -974,67 +977,7 @@ the following fields:</p>
 </tbody></table>
 
 <p>If format <strong>full</strong> was specified, the response will be an array, where each member contains 
-the following fields:</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>incident_id</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>patient_id</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>user_id</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>cont_duration</td>
-<td>double</td>
-</tr>
-<tr>
-<td>cont_frequency_low</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>cont_frequency_high</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>fhr</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>fm</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>user</td>
-<td>array</td>
-</tr>
-<tr>
-<td>mewts</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>pv_loss</td>
-<td>string(255)</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>datetime</td>
-</tr>
-</tbody></table>
+the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Description</a> section.</p>
 
 <p><strong>user</strong> is an object containing the following fields:</p>
 
@@ -1466,6 +1409,70 @@ the following fields:</p>
 <td>-</td>
 </tr>
 </tbody></table>
+<h2 id='obstetrics-record'>Obstetrics Record</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>incident_id</td>
+<td>integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>patient_id</td>
+<td>integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cont_duration</td>
+<td>decima(5,1)</td>
+<td>Range: [0,9999]. eg: 1234.1, 1.1, 5 are valid values</td>
+</tr>
+<tr>
+<td>cont_frequency_high</td>
+<td>string(255)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cont_frequency_low</td>
+<td>string(255)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>-</td>
+</tr>
+<tr>
+<td>fhr</td>
+<td>integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>fm</td>
+<td>string(255)</td>
+<td>-</td>
+</tr>
+<tr>
+<td>mewts</td>
+<td>decimal(8,49)</td>
+<td>Range: [0,9999]</td>
+</tr>
+<tr>
+<td>pv_loss</td>
+<td>string(255)</td>
+<td>-</td>
+</tr>
+</tbody></table>
 <h2 id='vital-signs-record'>Vital Signs Record</h2>
 <table><thead>
 <tr>
@@ -1547,7 +1554,7 @@ the following fields:</p>
 <tr>
 <td>pain_score</td>
 <td>integer</td>
-<td>-</td>
+<td>Range: [0,10]</td>
 </tr>
 <tr>
 <td>respiratory_rate</td>
@@ -1591,8 +1598,8 @@ the following fields:</p>
 </tr>
 <tr>
 <td>capillary_refill_time</td>
-<td>decimal(8,4)</td>
-<td>-</td>
+<td>integer</td>
+<td>See <a href="#capillary-refill-time-field-values">this</a> for a description of each value</td>
 </tr>
 <tr>
 <td>observation_time</td>
@@ -1605,7 +1612,37 @@ the following fields:</p>
 <td>-</td>
 </tr>
 </tbody></table>
-<h2 id='cqi-record'>CQI Record</h2><h1 id='datatypes'>Datatypes</h1><h2 id='decimal'>Decimal</h2>
+<h3 id='capillary-refill-time-field-values'>Capillary Refill Time Field Values</h3>
+<table><thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>10</td>
+<td>&lt;= 2 seconds</td>
+</tr>
+<tr>
+<td>20</td>
+<td>3 seconds</td>
+</tr>
+<tr>
+<td>30</td>
+<td>4 seconds</td>
+</tr>
+<tr>
+<td>40</td>
+<td>5 seconds</td>
+</tr>
+<tr>
+<td>50</td>
+<td>&gt; 5 seconds</td>
+</tr>
+</tbody></table>
+<h2 id='cqi-record'>CQI Record</h2>
+<p>// TODO</p>
+<h1 id='datatypes'>Datatypes</h1><h2 id='decimal'>Decimal</h2>
 <p>Whenever a <em>decimal</em> field is described, the number of integer and decimal digits supported by the field are
 also specified. A field described as decimal(x,y) will have X digits in total, of which X-Y correspond to the integer
 part and Y digits to the decimal part.</p>
