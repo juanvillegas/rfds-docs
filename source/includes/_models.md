@@ -41,34 +41,34 @@ The following section describes some Models that are used through the API and th
 
 ## Vital Signs Record
 
-| Attribute             | Type         | Description |
-| ---------             | ---------    | --------    |
-| id                    | integer      | -           |
-| incident_id           | integer      | -           |
-| patient_id            | integer      | -           |
-| user_id               | integer      | -           |
-| blood_pressure_high   | integer      | -           |
-| blood_pressure_low    | integer      | -           |
-| blood_sugars          | decimal(8,4) | -           |
-| fio2                  | string(255)  | -           |
-| gcs                   | integer      | -           |
-| gcs_e                 | integer      | -           |
-| gcs_v                 | integer      | -           |
-| gcs_m                 | integer      | -           |
-| heart_rate            | decimal(8,4) | -           |
-| o2_saturation         | decimal(8,4) | -           |
-| pain_score            | integer      | -           |
-| respiratory_rate      | decimal(8,4) | -           |
-| rhytm                 | string(191)  | -           |
-| temperature           | decimal(8,4) | -           |
-| normal_sys_bp         | integer      | -           |
-| o2_flow_delivery      | string(255)  | -           |
-| o2_flow_rate          | decimal(8,4) | -           |
-| consciousness         | string(191)  | -           |
-| respiratory_distress  | string(191)  | -           |
-| capillary_refill_time | decimal(8,4) | -           |
-| observation_time      | datetime     | -           |
-| created_at            | datetime     | -           |
+| Attribute             | Type         | Description   |
+| ---------             | ---------    | --------      |
+| id                    | integer      | -             |
+| incident_id           | integer      | -             |
+| patient_id            | integer      | -             |
+| user_id               | integer      | -             |
+| blood_pressure_high   | integer      | -             |
+| blood_pressure_low    | integer      | -             |
+| blood_sugars          | decimal(8,4) | -             |
+| fio2                  | string(255)  | -             |
+| gcs                   | integer      | -             |
+| gcs_e                 | integer      | -             |
+| gcs_v                 | integer      | -             |
+| gcs_m                 | integer      | -             |
+| heart_rate            | decimal(8,4) | -             |
+| o2_saturation         | decimal(8,4) | -             |
+| pain_score            | integer      | Range: [0,10] |
+| respiratory_rate      | decimal(8,4) | -             |
+| rhytm                 | string(191)  | -             |
+| temperature           | decimal(8,4) | -             |
+| normal_sys_bp         | integer      | -             |
+| o2_flow_delivery      | string(255)  | -             |
+| o2_flow_rate          | decimal(8,4) | -             |
+| consciousness         | string(191)  | -             |
+| respiratory_distress  | string(191)  | -             |
+| capillary_refill_time | decimal(8,4) | -             |
+| observation_time      | datetime     | -             |
+| created_at            | datetime     | -             |
 
 ## CQI Record
 
