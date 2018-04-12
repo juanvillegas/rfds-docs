@@ -41,19 +41,20 @@ The following section describes some Models that are used through the API and th
 
 ## Obstetrics Record
 
-| Attribute           | Type          | Description                                          |
-| ---------           | ---------     | --------                                             |
-| id                  | integer       | -                                                    |
-| incident_id         | integer       | -                                                    |
-| patient_id          | integer       | -                                                    |
-| cont_duration       | decima(5,1)   | Range: [0,9999]. eg: 1234.1, 1.1, 5 are valid values |
-| cont_frequency_high | string(255)   | -                                                    |
-| cont_frequency_low  | string(255)   | -                                                    |
-| created_at          | datetime      | -                                                    |
-| fhr                 | integer       | -                                                    |
-| fm                  | string(255)   | -                                                    |
-| mewts               | decimal(8,49) | Range: [0,9999]                                      |
-| pv_loss             | string(255)   | -                                                    |
+| Attribute           | Type          | Description                                            |
+| ---------           | ---------     | --------                                               |
+| id                  | integer       | -                                                      |
+| incident_id         | integer       | -                                                      |
+| patient_id          | integer       | -                                                      |
+| cont_duration       | decima(5,1)   | Range: [0,9999]. eg: 1234.1, 1.1, 5 are valid values   |
+| cont_frequency_high | string(255)   | -                                                      |
+| cont_frequency_low  | string(255)   | -                                                      |
+| created_at          | datetime      | -                                                      |
+| fhr                 | integer       | -                                                      |
+| fm                  | string(255)   | -                                                      |
+| mewts               | decimal(8,49) | Range: [0,9999]                                        |
+| pv_loss             | string(255)   | -                                                      |
+| created_at          | datetime      | If not provided, the current date & time will be used. |
 
 ## Vital Signs Record
 
