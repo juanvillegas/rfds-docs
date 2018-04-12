@@ -59,10 +59,10 @@ The following section describes some Models that are used through the API and th
 
 | Attribute             | Type         | Description                                                                     |
 | ---------             | ---------    | --------                                                                        |
-| id                    | integer      | -                                                                               |
+| id                    | integer      | Read Only                                                                       |
 | incident_id           | integer      | -                                                                               |
 | patient_id            | integer      | -                                                                               |
-| user_id               | integer      | -                                                                               |
+| user_id               | integer      | Read Only                                                                       |
 | blood_pressure_high   | integer      | -                                                                               |
 | blood_pressure_low    | integer      | -                                                                               |
 | blood_sugars          | decimal(8,4) | -                                                                               |
@@ -84,7 +84,7 @@ The following section describes some Models that are used through the API and th
 | respiratory_distress  | string(191)  | -                                                                               |
 | capillary_refill_time | integer      | See [this](#capillary-refill-time-field-values) for a description of each value |
 | observation_time      | datetime     | -                                                                               |
-| created_at            | datetime     | -                                                                               |
+| created_at            | datetime     | If this value is not provided, the system will use the current date & time.     |
 
 ### Capillary Refill Time Field Values
 

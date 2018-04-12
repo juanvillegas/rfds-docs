@@ -375,7 +375,8 @@ curl "HOST/api/v1/incidents/1/vital-signs"
     "blood_sugars": 1,
     "cewt": 1,
     "o2_saturation": 1,
-    "pain_score": 1
+    "pain_score": 1,
+    "created_at": "2018-04-04 00:00:00"
 }
 ```
 Creates Vital Signs for the given Incident
