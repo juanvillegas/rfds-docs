@@ -309,6 +309,9 @@
                     <a href="#incident" class="toc-h2 toc-link" data-title="Incident">Incident</a>
                   </li>
                   <li>
+                    <a href="#incident-2" class="toc-h2 toc-link" data-title="Incident">Incident</a>
+                  </li>
+                  <li>
                     <a href="#obstetrics-record" class="toc-h2 toc-link" data-title="Obstetrics Record">Obstetrics Record</a>
                   </li>
                   <li>
@@ -827,9 +830,14 @@ will be returned.</p>
     </span><span class="s2">"capillary_refill_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"observation_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pain_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"observed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-03T14:42:30+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-03T14:42:30+00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='create-vital-signs'>Create Vital Signs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/vital-signs"</span>
+</span></code></pre>
+<blockquote>
+<p>created_at and observed_at are returned as ISO8601 Datetime strings.</p>
+</blockquote>
+<h2 id='create-vital-signs'>Create Vital Signs</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/vital-signs"</span>
   -X POST
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
@@ -850,6 +858,7 @@ will be returned.</p>
     </span><span class="s2">"cewt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"o2_saturation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pain_score"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"observed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04 00:00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04 00:00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -913,9 +922,14 @@ will be returned.</p>
     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buckham Duffy"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"observed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-12T00:00:00+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-12T00:00:00+00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='retrieve-obstetrics-history'>Retrieve Obstetrics History</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics/history"</span>
+</span></code></pre>
+<blockquote>
+<p><em>observed_at</em> and <em>created_at</em> values are returned as ISO8601 Datetime strings</p>
+</blockquote>
+<h2 id='retrieve-obstetrics-history'>Retrieve Obstetrics History</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents/1/obstetrics/history"</span>
   -H <span class="s2">"Authorization: Bearer token"</span>
 </code></pre>
 <p>Retrieves Obstetrics History for the given Incident.</p>
@@ -973,7 +987,11 @@ the following fields:</p>
 </tr>
 <tr>
 <td>created_at</td>
-<td>datetime</td>
+<td>iso8601</td>
+</tr>
+<tr>
+<td>observed_at</td>
+<td>iso8601</td>
 </tr>
 </tbody></table>
 
@@ -1401,6 +1419,8 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <td>-</td>
 </tr>
 </tbody></table>
+<h2 id='incident-2'>Incident</h2>
+<p>// TODO: help is required to add the patient model here :D</p>
 <h2 id='obstetrics-record'>Obstetrics Record</h2>
 <table><thead>
 <tr>
