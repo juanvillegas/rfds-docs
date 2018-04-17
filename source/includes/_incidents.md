@@ -292,6 +292,8 @@ The response will be an array, where each member contains the following fields:
 | route           | string(191)  |
 | unit            | string(191)  |
 
+
+
 # Incident Vital Signs
 
 ## Retrieve Vital Signs
@@ -347,9 +349,12 @@ will be returned.
     "capillary_refill_time": null,
     "observation_time": null,
     "pain_score": null,
+    "observed_at": "2017-12-03T14:42:30+00:00",
     "created_at": "2017-12-03T14:42:30+00:00"
 }
 ```
+
+> created_at and observed_at are returned as ISO8601 Datetime strings.
 
 ## Create Vital Signs
 
@@ -376,6 +381,7 @@ curl "HOST/api/v1/incidents/1/vital-signs"
     "cewt": 1,
     "o2_saturation": 1,
     "pain_score": 1,
+    "observed_at": "2018-04-04 00:00:00",
     "created_at": "2018-04-04 00:00:00"
 }
 ```
@@ -397,6 +403,8 @@ See [Vital Signs Model Description](#vital-signs-record)
 
 ## Retrieve History
 //TODO
+
+
 
 # Incident Obstetrics
 
@@ -435,9 +443,12 @@ Retrieves Obstetrics for the given Incident.
     "user": {
         "name": "Buckham Duffy"
     },
+    "observed_at": "2017-12-12T00:00:00+00:00",
     "created_at": "2017-12-12T00:00:00+00:00"
 }
 ```
+
+> _observed_at_ and _created_at_ values are returned as ISO8601 Datetime strings
 
 ## Retrieve Obstetrics History
 
@@ -470,10 +481,11 @@ Retrieves Obstetrics History for the given Incident.
 If format **compact** was specified, the response will be an array, where each member contains 
 the following fields:
 
-| Field      | Type     |
-| ---------  | -------  |
-| id         | integer  |
-| created_at | datetime |
+| Field       | Type    |
+| ---------   | ------- |
+| id          | integer |
+| created_at  | iso8601 |
+| observed_at | iso8601 |
 
 If format **full** was specified, the response will be an array, where each member contains 
 the fields indicated in the [Obstetrics Model Description](#obstetrics-record) section.

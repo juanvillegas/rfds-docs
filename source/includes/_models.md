@@ -39,6 +39,10 @@ The following section describes some Models that are used through the API and th
 | created_at                   | timestamp   | -                            |
 | updated_at                   | timestamp   | -                            |
 
+## Incident
+
+// TODO: help is required to add the patient model here :D
+
 ## Obstetrics Record
 
 | Attribute           | Type          | Description                                          |
