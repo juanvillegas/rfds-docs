@@ -41,28 +41,28 @@ The following section describes some Models that are used through the API and th
 
 ## Obstetrics Record
 
-| Attribute           | Type          | Description                                            |
-| ---------           | ---------     | --------                                               |
-| id                  | integer       | -                                                      |
-| incident_id         | integer       | -                                                      |
-| patient_id          | integer       | -                                                      |
-| cont_duration       | decima(5,1)   | Range: [0,9999]. eg: 1234.1, 1.1, 5 are valid values   |
-| cont_frequency_high | string(255)   | -                                                      |
-| cont_frequency_low  | string(255)   | -                                                      |
-| created_at          | datetime      | -                                                      |
-| fhr                 | integer       | -                                                      |
-| fm                  | string(255)   | -                                                      |
-| mewts               | decimal(8,49) | Range: [0,9999]                                        |
-| pv_loss             | string(255)   | -                                                      |
-| created_at          | datetime      | If not provided, the current date & time will be used. |
+| Attribute           | Type          | Description                                          |
+| ---------           | ---------     | --------                                             |
+| id                  | integer       | Read only                                            |
+| incident_id         | integer       | Read only                                            |
+| patient_id          | integer       | Required                                             |
+| cont_duration       | decima(5,1)   | Range: [0,9999]. eg: 1234.1, 1.1, 5 are valid values |
+| cont_frequency_high | string(255)   | -                                                    |
+| cont_frequency_low  | string(255)   | -                                                    |
+| created_at          | datetime      | -                                                    |
+| fhr                 | integer       | -                                                    |
+| fm                  | string(255)   | -                                                    |
+| mewts               | decimal(8,49) | Range: [0,9999]                                      |
+| pv_loss             | string(255)   | -                                                    |
+| observed_at         | datetime      | Required                                             |
 
 ## Vital Signs Record
 
 | Attribute             | Type         | Description                                                                     |
 | ---------             | ---------    | --------                                                                        |
 | id                    | integer      | Read Only                                                                       |
-| incident_id           | integer      | -                                                                               |
-| patient_id            | integer      | -                                                                               |
+| incident_id           | integer      | Read Only                                                                       |
+| patient_id            | integer      | Required                                                                        |
 | user_id               | integer      | Read Only                                                                       |
 | blood_pressure_high   | integer      | -                                                                               |
 | blood_pressure_low    | integer      | -                                                                               |
@@ -84,8 +84,7 @@ The following section describes some Models that are used through the API and th
 | consciousness         | string(191)  | -                                                                               |
 | respiratory_distress  | string(191)  | -                                                                               |
 | capillary_refill_time | integer      | See [this](#capillary-refill-time-field-values) for a description of each value |
-| observation_time      | datetime     | -                                                                               |
-| created_at            | datetime     | If this value is not provided, the system will use the current date & time.     |
+| observed_at           | datetime     | Required.                                                                       |                                                                            |
 
 ### Capillary Refill Time Field Values
 
