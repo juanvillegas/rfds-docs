@@ -1000,12 +1000,13 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
     </span><span class="s2">"cont_frequency"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"pv_loss"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"mewts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cont_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="s2">"cont_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"observed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04 00:00:00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Creates Vital Signs for the given Incident</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>POST HOST/incidents/{incident_id}/vital-signs</code></p>
+<p><code>POST HOST/incidents/{incident_id}/obstetrics</code></p>
 <h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1018,19 +1019,9 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <td>Incident ID</td>
 </tr>
 </tbody></table>
-
-<blockquote>
-<p>Example Response 422:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The given data was invalid."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"patient_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"The patient id field is required."</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='patients'>Patients</h1><h2 id='patients-collection'>Patients Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients"</span>
+<h3 id='request-parameters-3'>Request Parameters</h3>
+<p>See <a href="#obstetrics-record">Obstetrics Model Description</a></p>
+<h1 id='patients'>Patients</h1><h2 id='patients-collection'>Patients Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/patients"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
