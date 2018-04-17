@@ -1421,17 +1421,17 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <tr>
 <td>id</td>
 <td>integer</td>
-<td>-</td>
+<td>Read only</td>
 </tr>
 <tr>
 <td>incident_id</td>
 <td>integer</td>
-<td>-</td>
+<td>Read only</td>
 </tr>
 <tr>
 <td>patient_id</td>
 <td>integer</td>
-<td>-</td>
+<td>Required</td>
 </tr>
 <tr>
 <td>cont_duration</td>
@@ -1474,9 +1474,9 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <td>-</td>
 </tr>
 <tr>
-<td>created_at</td>
+<td>observed_at</td>
 <td>datetime</td>
-<td>If not provided, the current date &amp; time will be used.</td>
+<td>Required</td>
 </tr>
 </tbody></table>
 <h2 id='vital-signs-record'>Vital Signs Record</h2>
@@ -1495,12 +1495,12 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <tr>
 <td>incident_id</td>
 <td>integer</td>
-<td>-</td>
+<td>Read Only</td>
 </tr>
 <tr>
 <td>patient_id</td>
 <td>integer</td>
-<td>-</td>
+<td>Required</td>
 </tr>
 <tr>
 <td>user_id</td>
@@ -1608,14 +1608,9 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <td>See <a href="#capillary-refill-time-field-values">this</a> for a description of each value</td>
 </tr>
 <tr>
-<td>observation_time</td>
+<td>observed_at</td>
 <td>datetime</td>
-<td>-</td>
-</tr>
-<tr>
-<td>created_at</td>
-<td>datetime</td>
-<td>If this value is not provided, the system will use the current date &amp; time.</td>
+<td>Required.</td>
 </tr>
 </tbody></table>
 <h3 id='capillary-refill-time-field-values'>Capillary Refill Time Field Values</h3>
