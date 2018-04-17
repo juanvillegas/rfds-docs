@@ -503,14 +503,15 @@ curl "HOST/api/v1/incidents/1/obstetrics"
     "cont_frequency": 1,
     "pv_loss": 1,
     "mewts": 1,
-    "cont_duration": 1
+    "cont_duration": 1,
+    "observed_at": "2018-04-04 00:00:00"
 }
 ```
 Creates Vital Signs for the given Incident
 
 ### HTTP Request
 
-`POST HOST/incidents/{incident_id}/vital-signs`
+`POST HOST/incidents/{incident_id}/obstetrics`
 
 ### URL Parameters
 
@@ -518,15 +519,6 @@ Creates Vital Signs for the given Incident
 | ---------   | ----------- |
 | incident_id | Incident ID |
 
-> Example Response 422:
+### Request Parameters
 
-```json
-{
-    "message": "The given data was invalid.",
-    "errors": {
-        "patient_id": [
-            "The patient id field is required."
-        ]
-    }
-}
-```
+See [Obstetrics Model Description](#obstetrics-record)
