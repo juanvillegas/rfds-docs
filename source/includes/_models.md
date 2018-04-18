@@ -2,6 +2,10 @@
 
 The following section describes some Models that are used through the API and their corresponding fields
 
+## Patient
+
+// TODO
+
 ## Incident
 
 | Attribute                    | Type        | Description                  |

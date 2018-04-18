@@ -49,6 +49,18 @@ curl "HOST/api/v1/incidents"
                 "patient": {
                     "id": 1,
                     "age": 28,
+                    "diagnosis_code_id": 1,
+                    "diagnosis_code": {
+                    	"id": 1,
+                    	"chapter_id": 1,
+                    	"code": "ABC123",
+                    	"long_description": "",
+                    	"short_description": "",
+                    	"chapter": {
+                    		"id": 1,
+                    		"name": "Chapter name"
+                    	}
+                    },
                     "dob": "2016-11-30",
                     "email": "patient-contact@email.com",
                     "emergency_contact_name": "mario",
@@ -110,16 +122,7 @@ Get a collection of Incidents, optionally filtered by a search value.
 
 ### Response Fields
 
-| Field                        | Type    | Description |
-| ---------                    | ------- | ----------- |
-| id                           | integer | -           |
-| coordinator_name             | string  | -           |
-| coordinator_surname          | string  | -           |
-| coordinator_phone            | string  | -           |
-| coordinator_designation_code | string  | -           |
-| coordinator_facility         | string  | -           |
-| created_by                   | integer | -           |
-| updated_by                   | integer | -           |
+// TODO
 
 
 ## Single Incident
@@ -167,6 +170,18 @@ curl "HOST/api/v1/incidents/1"
         "patient": {
             "id": 1,
             "age": 28,
+            "diagnosis_code_id": 1,
+            "diagnosis_code": {
+                "id": 1,
+                "chapter_id": 1,
+                "code": "ABC123",
+                "long_description": "",
+                "short_description": "",
+                "chapter": {
+                    "id": 1,
+                    "name": "Chapter name"
+                }
+            },
             "dob": "2016-11-30",
             "email": "patient-contact@email.com",
             "emergency_contact_name": "mario",
@@ -237,6 +252,9 @@ This endpoint deletes a specific Incident.
 | Parameter | Description                      |
 | --------- | -----------                      |
 | ID        | The ID of the Incident to delete |
+
+
+
 
 # Incident Medication
 
