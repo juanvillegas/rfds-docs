@@ -6,6 +6,14 @@ Looking for the [docs](https://juanvillegas.github.io/rfds-docs/)?
 
 ## Collaborators Guide
 
+### Deploying
+
+1. Edit
+2. git add .
+3. git commit -m "some useful message"
+4. git push
+5. ./deploy.sh
+
 ### Executing Slate
 
 See [slate docs](https://github.com/lord/slate)

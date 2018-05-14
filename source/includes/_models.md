@@ -2,10 +2,6 @@
 
 The following section describes some Models that are used through the API and their corresponding fields
 
-## Patient
-
-// TODO
-
 ## Incident
 
 | Attribute                    | Type        | Description                  |
@@ -43,7 +39,7 @@ The following section describes some Models that are used through the API and th
 | created_at                   | timestamp   | -                            |
 | updated_at                   | timestamp   | -                            |
 
-## Incident
+## Patient
 
 // TODO: help is required to add the patient model here :D
 
