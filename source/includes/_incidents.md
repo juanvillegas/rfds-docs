@@ -147,6 +147,30 @@ curl "HOST/api/v1/incidents/1"
         "coordinator_facility": "san juan del sur",
         "created_by": 1,
         "updated_by": 1,
+        "diagnosis_codes": [
+        	{
+                "id": 1,
+                "chapter_id": 1,
+                "code": "code1",
+                "long_description": "",
+                "short_description": "",
+                "chapter": {
+                    "id": 1,
+                    "name": "Chapter name"
+                }
+            },
+        	{
+                "id": 2,
+                "chapter_id": 1,
+                "code": "code2",
+                "long_description": "",
+                "short_description": "",
+                "chapter": {
+                    "id": 1,
+                    "name": "Chapter name"
+                }
+            }
+        ],
         "escort_weight": 60,
         "evac_code": "code123",
         "evac_decision_datetime": null,
@@ -170,18 +194,6 @@ curl "HOST/api/v1/incidents/1"
         "patient": {
             "id": 1,
             "age": 28,
-            "diagnosis_code_id": 1,
-            "diagnosis_code": {
-                "id": 1,
-                "chapter_id": 1,
-                "code": "ABC123",
-                "long_description": "",
-                "short_description": "",
-                "chapter": {
-                    "id": 1,
-                    "name": "Chapter name"
-                }
-            },
             "dob": "2016-11-30",
             "email": "patient-contact@email.com",
             "emergency_contact_name": "mario",

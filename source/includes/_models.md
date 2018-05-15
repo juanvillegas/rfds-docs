@@ -4,40 +4,41 @@ The following section describes some Models that are used through the API and th
 
 ## Incident
 
-| Attribute                    | Type        | Description                  |
-| ---------                    | ---------   | --------                     |
-| id                           | integer     | Unique identifier for record |
-| contact_method               | string(100) | -                            |
-| coordinator_name             | string(191) | -                            |
-| coordinator_surname          | string(191) | -                            |
-| coordinator_phone            | string(191) | -                            |
-| coordinator_designation_code | string(191) | -                            |
-| coordinator_facility         | string(191) | -                            |
-| created_by                   | integer     | -                            |
-| updated_by                   | integer     | -                            |
-| escort_weight                | integer     | -                            |
-| evac_code                    | string(191) | -                            |
-| evac_decision_datetime       | datetime    | -                            |
-| flight_priority              | integer     | -                            |
-| initiated_by                 | string(255) | -                            |
-| incident_datetime            | datetime    | -                            |
-| patient_evacuated            | boolean     | -                            |
-| originating_facility         | string(255) | -                            |
-| patient_escorted             | boolean     | -                            |
-| receiving_facility           | string(255) | -                            |
-| reporter_name                | string(191) | -                            |
-| reporter_surname             | string(191) | -                            |
-| reporter_phone               | string(191) | -                            |
-| reporter_designation_code    | string(191) | -                            |
-| reporter_facility            | string(191) | -                            |
-| rsq_number                   | string(191) | -                            |
-| escort_given_name            | string(191) | -                            |
-| escort_surname               | string(191) | -                            |
-| atr_number                   | string(255) | -                            |
-| tcr_number                   | string(255) | -                            |
-| afr_number                   | string(255) | -                            |
-| created_at                   | timestamp   | -                            |
-| updated_at                   | timestamp   | -                            |
+| Attribute                    | Type        | Description                                                                                   |
+| ---------                    | ---------   | --------                                                                                      |
+| id                           | integer     | Unique identifier for record                                                                  |
+| contact_method               | string(100) | -                                                                                             |
+| coordinator_name             | string(191) | -                                                                                             |
+| coordinator_surname          | string(191) | -                                                                                             |
+| coordinator_phone            | string(191) | -                                                                                             |
+| coordinator_designation_code | string(191) | -                                                                                             |
+| coordinator_facility         | string(191) | -                                                                                             |
+| created_by                   | integer     | -                                                                                             |
+| updated_by                   | integer     | -                                                                                             |
+| diagnosis_codes              | array       | Readonly. The array will contain all the Diagnosis Code objects associated with this Incident |
+| escort_weight                | integer     | -                                                                                             |
+| evac_code                    | string(191) | -                                                                                             |
+| evac_decision_datetime       | datetime    | -                                                                                             |
+| flight_priority              | integer     | -                                                                                             |
+| initiated_by                 | string(255) | -                                                                                             |
+| incident_datetime            | datetime    | -                                                                                             |
+| patient_evacuated            | boolean     | -                                                                                             |
+| originating_facility         | string(255) | -                                                                                             |
+| patient_escorted             | boolean     | -                                                                                             |
+| receiving_facility           | string(255) | -                                                                                             |
+| reporter_name                | string(191) | -                                                                                             |
+| reporter_surname             | string(191) | -                                                                                             |
+| reporter_phone               | string(191) | -                                                                                             |
+| reporter_designation_code    | string(191) | -                                                                                             |
+| reporter_facility            | string(191) | -                                                                                             |
+| rsq_number                   | string(191) | -                                                                                             |
+| escort_given_name            | string(191) | -                                                                                             |
+| escort_surname               | string(191) | -                                                                                             |
+| atr_number                   | string(255) | -                                                                                             |
+| tcr_number                   | string(255) | -                                                                                             |
+| afr_number                   | string(255) | -                                                                                             |
+| created_at                   | timestamp   | -                                                                                             |
+| updated_at                   | timestamp   | -                                                                                             |
 
 ## Patient
 
@@ -102,7 +103,25 @@ The following section describes some Models that are used through the API and th
 
 ## CQI Record
 
-// TODO
+// TODO: help would be appreciated
+
+## Diagnosis Code Chapter
+
+| Attribute | Type        | Description |
+| --------- | ----------- | ----------- |
+| id        | integer     | -           |
+| name      | string(255) | -           |
+
+## Diagnosis Code
+
+| Attribute         | Type        | Description |
+| ---------         | ---------   | --------    |
+| id                | integer     | -           |
+| chapter_id        | integer     | -           |
+| code              | integer     | string(170) |
+| short_description | string(255) | -           |
+| long_description  | mediumtext  | -           |
+
 
 # Datatypes
 
