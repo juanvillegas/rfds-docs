@@ -236,6 +236,14 @@
               </ul>
           </li>
           <li>
+            <a href="#news-and-updates" class="toc-h1 toc-link" data-title="News and Updates">News and Updates</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#updates-week-3-may-2018" class="toc-h2 toc-link" data-title="Updates Week 3 - May 2018">Updates Week 3 - May 2018</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#incidents" class="toc-h1 toc-link" data-title="Incidents">Incidents</a>
               <ul class="toc-list-h2">
                   <li>
@@ -386,7 +394,22 @@ For example, to use the <em>/incidents</em> endpoint, the request should be made
 of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/some/endpoint"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre><h1 id='incidents'>Incidents</h1><h2 id='incidents-collection'>Incidents Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents"</span>
+</code></pre><h1 id='news-and-updates'>News and Updates</h1><h2 id='updates-week-3-may-2018'>Updates Week 3 - May 2018</h2><h3 id='breaking-changes-on-incident-update-response'>Breaking changes on Incident Update response</h3>
+<p>Until today, the api responded with the string &#39;updated&#39; in the data property of the returned JSON.
+This has been removed to standardize the responses of the api in general.</p>
+<h3 id='diagnosis-codes-removed-from-patient-added-to-incident'>Diagnosis Codes removed from Patient, added to Incident</h3>
+<p>As of now, Diagnosis Codes are a property of the Incident model, not the Patient anymore.</p>
+
+<p>Also, the database now supports having Incidents with many Diagnosis Codes. At the moment, the 
+limit is capped to 2 codes per Incident.</p>
+
+<p>To set the Diagnosis Codes for an Incident, use the new &quot;diagnosis_codes&quot; property of the Incident model
+to provide the ids of the desired Diagnosis Codes. More information in the corresponding endpoint description.</p>
+<h3 id='camel-case-attributes-replaced-with-snake_case-counterparts'>Camel Case attributes replaced with snake_case counterparts</h3>
+<p>In an effort to standardize the responses of the API, some of the attributes returned in some models
+were changed from SnakeCase to their corresponding snake_case versions. So for example, the <em>updatedByUser</em> attribute
+in the Incident model is now <em>updated_by_user</em>. Check the corresponding API sections for more changes.   </p>
+<h1 id='incidents'>Incidents</h1><h2 id='incidents-collection'>Incidents Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/incidents"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
 </code></pre>
 <blockquote>
