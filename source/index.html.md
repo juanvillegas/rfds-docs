@@ -9,6 +9,7 @@ toc_footers:
 
 includes:
   - intro
+  - news
   - incidents
   - patients
   - models
