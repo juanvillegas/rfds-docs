@@ -394,7 +394,9 @@ For example, to use the <em>/incidents</em> endpoint, the request should be made
 of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/some/endpoint"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre><h1 id='news-and-updates'>News and Updates</h1><h2 id='updates-week-3-may-2018'>Updates Week 3 - May 2018</h2><h3 id='breaking-changes-on-incident-update-response'>Breaking changes on Incident Update response</h3>
+</code></pre><h1 id='news-and-updates'>News and Updates</h1><h2 id='updates-week-3-may-2018'>Updates Week 3 - May 2018</h2><h3 id='handover_datetime-attribute-added-to-incident-model'>handover_datetime attribute added to Incident model</h3>
+<p>See Incident model description for more information.</p>
+<h3 id='breaking-changes-on-incident-update-response'>Breaking changes on Incident Update response</h3>
 <p>Until today, the api responded with the string &#39;updated&#39; in the data property of the returned JSON.
 This has been removed to standardize the responses of the api in general.</p>
 <h3 id='diagnosis-codes-removed-from-patient-added-to-incident'>Diagnosis Codes removed from Patient, added to Incident</h3>
@@ -1345,6 +1347,11 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <tr>
 <td>flight_priority</td>
 <td>integer</td>
+<td>-</td>
+</tr>
+<tr>
+<td>handover_datetime</td>
+<td>datetime</td>
 <td>-</td>
 </tr>
 <tr>
