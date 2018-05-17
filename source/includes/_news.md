@@ -2,6 +2,10 @@
 
 ## Updates Week 3 - May 2018
 
+### handover_datetime attribute added to Incident model
+
+See Incident model description for more information.
+
 ### Breaking changes on Incident Update response
 
 Until today, the api responded with the string 'updated' in the data property of the returned JSON.

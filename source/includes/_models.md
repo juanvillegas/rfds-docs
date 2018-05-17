@@ -20,6 +20,7 @@ The following section describes some Models that are used through the API and th
 | evac_code                    | string(191) | -                                                                                             |
 | evac_decision_datetime       | datetime    | -                                                                                             |
 | flight_priority              | integer     | -                                                                                             |
+| handover_datetime            | datetime    | -                                                                                             |
 | initiated_by                 | string(255) | -                                                                                             |
 | incident_datetime            | datetime    | -                                                                                             |
 | patient_evacuated            | boolean     | -                                                                                             |
