@@ -175,6 +175,7 @@ curl "HOST/api/v1/incidents/1"
         "evac_code": "code123",
         "evac_decision_datetime": null,
         "flight_priority": 2,
+        "handover_datetime": "2018-01-22 00:00:00",
         "initiated_by": "RFDS",
         "incident_datetime": null,
         "patient_evacuated": 1,
