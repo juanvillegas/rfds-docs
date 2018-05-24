@@ -19,6 +19,8 @@ The following section describes some Models that are used through the API and th
 | escort_weight                | integer     | -                                                                                             |
 | evac_code                    | string(191) | -                                                                                             |
 | evac_decision_datetime       | datetime    | -                                                                                             |
+| first_contact_site           | string(255) | Nullable.                                                                                     |
+| first_contact_datetime       | datetime    | Nullable.                                                                                     |
 | flight_priority              | integer     | -                                                                                             |
 | handover_datetime            | datetime    | -                                                                                             |
 | initiated_by                 | string(255) | -                                                                                             |

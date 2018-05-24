@@ -174,6 +174,8 @@ curl "HOST/api/v1/incidents/1"
         "escort_weight": 60,
         "evac_code": "code123",
         "evac_decision_datetime": null,
+        "first_contact_datetime": "2018-01-22 00:00:00",
+        "first_contact_site": "Airstrip",
         "flight_priority": 2,
         "handover_datetime": "2018-01-22 00:00:00",
         "initiated_by": "RFDS",

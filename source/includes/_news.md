@@ -1,5 +1,11 @@
 # News and Updates
 
+## Updates Week 4 - May 2018
+
+### Added first_contact_datetime and first_contact_site to Incident model
+
+See Incident model description for more information.
+
 ## Updates Week 3 - May 2018
 
 ### handover_datetime attribute added to Incident model
