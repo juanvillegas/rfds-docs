@@ -1,5 +1,21 @@
 # News and Updates
 
+## Updates Week June 28th 2018
+
+### Designation Codes
+
+**Breaking Changes** Fields that deal with designation codes have just received a major update. We switched from 
+arbitrary text fields to only allowing a set of predefined designation codes. This means that clients must check the 
+corresponding documentation (see Incident Model description) for supported designation codes. The Incident model now
+also includes a readonly field with the presentation name for the designation code.
+
+### New fields on Incident model
+
+The incident model was upgraded with new fields:
+
+- patient_transport_outcome: Arbitrary 255 max length string.
+- risk_cabin_altitude_restriction: See incident model 
+
 ## Updates Week 4 - May 2018
 
 ### Added first_contact_datetime and first_contact_site to Incident model

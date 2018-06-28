@@ -1,47 +1,69 @@
 # Models
 
-The following section describes some Models that are used through the API and their corresponding fields
+The following section describes the Models that are used through the API and their corresponding fields
 
 ## Incident
 
-| Attribute                    | Type        | Description                                                                                   |
-| ---------                    | ---------   | --------                                                                                      |
-| id                           | integer     | Unique identifier for record                                                                  |
-| contact_method               | string(100) | -                                                                                             |
-| coordinator_name             | string(191) | -                                                                                             |
-| coordinator_surname          | string(191) | -                                                                                             |
-| coordinator_phone            | string(191) | -                                                                                             |
-| coordinator_designation_code | string(191) | -                                                                                             |
-| coordinator_facility         | string(191) | -                                                                                             |
-| created_by                   | integer     | -                                                                                             |
-| updated_by                   | integer     | -                                                                                             |
-| diagnosis_codes              | array       | Readonly. The array will contain all the Diagnosis Code objects associated with this Incident |
-| escort_weight                | integer     | -                                                                                             |
-| evac_code                    | string(191) | -                                                                                             |
-| evac_decision_datetime       | datetime    | -                                                                                             |
-| first_contact_site           | string(255) | Nullable.                                                                                     |
-| first_contact_datetime       | datetime    | Nullable.                                                                                     |
-| flight_priority              | integer     | -                                                                                             |
-| handover_datetime            | datetime    | -                                                                                             |
-| initiated_by                 | string(255) | -                                                                                             |
-| incident_datetime            | datetime    | -                                                                                             |
-| patient_evacuated            | boolean     | -                                                                                             |
-| originating_facility         | string(255) | -                                                                                             |
-| patient_escorted             | boolean     | -                                                                                             |
-| receiving_facility           | string(255) | -                                                                                             |
-| reporter_name                | string(191) | -                                                                                             |
-| reporter_surname             | string(191) | -                                                                                             |
-| reporter_phone               | string(191) | -                                                                                             |
-| reporter_designation_code    | string(191) | -                                                                                             |
-| reporter_facility            | string(191) | -                                                                                             |
-| rsq_number                   | string(191) | -                                                                                             |
-| escort_given_name            | string(191) | -                                                                                             |
-| escort_surname               | string(191) | -                                                                                             |
-| atr_number                   | string(255) | -                                                                                             |
-| tcr_number                   | string(255) | -                                                                                             |
-| afr_number                   | string(255) | -                                                                                             |
-| created_at                   | timestamp   | -                                                                                             |
-| updated_at                   | timestamp   | -                                                                                             |
+| Attribute                         | Type        | Description                                                                                   |
+| ---------                         | ---------   | --------                                                                                      |
+| atr_number                        | string(255) | -                                                                                             |
+| id                                | integer     | Unique identifier for record                                                                  |
+| contact_method                    | string(100) | -                                                                                             |
+| coordinator_name                  | string(191) | -                                                                                             |
+| coordinator_surname               | string(191) | -                                                                                             |
+| coordinator_phone                 | string(191) | -                                                                                             |
+| coordinator_designation_code      | string(255) | See valid designation codes below                                                             |
+| coordinator_designation_code_nice | string      | Readonly. Formatted designation code. See designation codes below.                            |
+| coordinator_facility              | string(191) | -                                                                                             |
+| created_by                        | integer     | -                                                                                             |
+| datetime_departed                 | datetime    | -                                                                                             |
+| diagnosis_codes                   | array       | Readonly. The array will contain all the Diagnosis Code objects associated with this Incident |
+| escort_weight                     | integer     | -                                                                                             |
+| escort_given_name                 | string(191) | -                                                                                             |
+| escort_surname                    | string(191) | -                                                                                             |
+| evac_code                         | string(191) | -                                                                                             |
+| evac_decision_datetime            | datetime    | -                                                                                             |
+| first_contact_site                | string(255) | Nullable.                                                                                     |
+| first_contact_datetime            | datetime    | Nullable.                                                                                     |
+| flight_priority                   | integer     | -                                                                                             |
+| handover_datetime                 | datetime    | -                                                                                             |
+| handover_recipient                | string(255) | -                                                                                             |
+| initiated_by                      | string(255) | -                                                                                             |
+| incident_datetime                 | datetime    | -                                                                                             |
+| patient_evacuated                 | boolean     | -                                                                                             |
+| originating_facility              | string(255) | -                                                                                             |
+| patient_escorted                  | boolean     | -                                                                                             |
+| patient_transport_outcome         | string(255) | -                                                                                             |
+| receiving_facility                | string(255) | -                                                                                             |
+| reporter_name                     | string(191) | -                                                                                             |
+| reporter_surname                  | string(191) | -                                                                                             |
+| reporter_phone                    | string(191) | -                                                                                             |
+| reporter_designation_code         | string(191) | See valid designation codes below                                                             |
+| reporter_designation_code_nice    | string      | Readonly. Formatted designation code. See designation codes below.                            |
+| reporter_facility                 | string(191) | -                                                                                             |
+| rsq_number                        | string(191) | -                                                                                             |
+| updated_by                        | integer     | -                                                                                             |
+| tcr_number                        | string(255) | -                                                                                             |
+| afr_number                        | string(255) | -                                                                                             |
+| created_at                        | timestamp   | -                                                                                             |
+| updated_at                        | timestamp   | -                                                                                             |
+
+### Designation Codes
+
+| Code | Nice                                   |
+| ---- | ----                                   |
+| m1.1 | M1.1 • Medical Officer, RFDS General   |
+| m1.2 | M1.2 • Medical Officer, RFDS IPHCI     |
+| m1.3 | M1.3 • Retrieval Registrar, RFDS       |
+| m2.1 | M2.1 • Specialist, Emergency           |
+| m2.2 | M2.2 • Specialist, Anaesthetic/ICU     |
+| m2.3 | M2.3 • Specialist, O&G                 |
+| m2.4 | M2.4 • Specialist, Paediatric/Neonatal |
+| m2.5 | M2.5 • Specialist, Psychiatric         |
+| m2.6 | M2.6 • Specialist, Other               |
+| n1.1 | N1.1 • Registered Nurse, RFDS General  |
+| n2   | N2 • Registered Nurse, Non-RFDS        |
+| q1   | Q1 • QAS Officer                       |
 
 ## Patient
 
@@ -96,13 +118,13 @@ The following section describes some Models that are used through the API and th
 
 ### Capillary Refill Time Field Values
 
-| Value    | Description   |
-|--------- | --------------|
-| 10       | <= 2 seconds  |
-| 20       | 3 seconds     |
-| 30       | 4 seconds     |
-| 40       | 5 seconds     |
-| 50       | > 5 seconds   |
+| Value     | Description    |
+|-- ------- | ------------ --|
+| 10        | <= 2 seconds   |
+| 20        | 3 seconds      |
+| 30        | 4 seconds      |
+| 40        | 5 seconds      |
+| 50        | > 5 seconds    |
 
 ## CQI Record
 
@@ -125,6 +147,16 @@ The following section describes some Models that are used through the API and th
 | short_description | string(255) | -           |
 | long_description  | mediumtext  | -           |
 
+## Risks List
+
+| Name                       | Field                           | Accepted values                                    |
+| ---                        | ----                            | ---                                                |
+| Cabin Altitude Restriction | risk_cabin_altitude_restriction | 0: No restrictions, 5: < 4000 feet, 10 < Sea level |
+| Positioning Requirement    | risk_positioning_requirement    | String, 191 chars                                  |
+| Pressure Area device       | risk_pressure_area_device       | Boolean                                            |
+| Pressure Injury            | risk_pressure_injury            | String, 30 chars                                   |
+| Infectious                 | risk_infectious                 | String, 255 chars                                  |
+| Agitated Patient Score     | risk_agitated_patient_score     | Number between 0 and 60, multiple of 5             |
 
 # Datatypes
 
