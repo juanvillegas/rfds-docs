@@ -14,7 +14,13 @@ also includes a readonly field with the presentation name for the designation co
 The incident model was upgraded with new fields:
 
 - patient_transport_outcome: Arbitrary 255 max length string.
-- risk_cabin_altitude_restriction: See incident model 
+- risk_cabin_altitude_restriction: See patient model 
+- handover_recipient: See incident model
+- datetime_departed: See incident model
+
+### Added section for Audit Logs management
+
+Methods for GETting and POSTing Audit Logs are now described in the api docs.
 
 ## Updates Week 4 - May 2018
 

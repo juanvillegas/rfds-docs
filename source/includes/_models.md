@@ -130,6 +130,18 @@ The following section describes the Models that are used through the API and the
 
 // TODO: help would be appreciated
 
+## Audit Log
+
+| Attribute          | Type        | Description                                                                              |
+| ---------          | ----------- | -----------                                                                              |
+| device             | string(255) | Required. Its the name of the device reporting the audit log.                            |
+| event              | enum        | Required. valid values: 'login', 'create_incident', 'edit_incident', 'view_incident'     |
+| incident_id        | integer     | Optional. ID of the incident. Only required for certain event types.                     |
+| user_id            | integer     | Optional. ID of the reporting user. If not provided, the logged in user id will be used. |
+| location           | array       | Optional. If provided, it must include the following subfields:                          |
+| location.latitude  | string      | Latitude of the intended location                                                        |
+| location.longitude | string      | Longitude of the intended location.                                                      |
+
 ## Diagnosis Code Chapter
 
 | Attribute | Type        | Description |

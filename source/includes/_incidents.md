@@ -131,7 +131,6 @@ Get a collection of Incidents, optionally filtered by a search value.
 
 // TODO
 
-
 ## Single Incident
 
 ```shell

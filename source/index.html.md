@@ -12,6 +12,7 @@ includes:
   - news
   - incidents
   - patients
+  - audit_logs
   - models
   - errors
 
