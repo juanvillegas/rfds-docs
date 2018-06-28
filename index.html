@@ -317,6 +317,17 @@
               </ul>
           </li>
           <li>
+            <a href="#audit-logs" class="toc-h1 toc-link" data-title="Audit Logs">Audit Logs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#audit-logs-collection" class="toc-h2 toc-link" data-title="Audit Logs Collection">Audit Logs Collection</a>
+                  </li>
+                  <li>
+                    <a href="#create-audit-log" class="toc-h2 toc-link" data-title="Create Audit Log">Create Audit Log</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#models" class="toc-h1 toc-link" data-title="Models">Models</a>
               <ul class="toc-list-h2">
                   <li>
@@ -333,6 +344,9 @@
                   </li>
                   <li>
                     <a href="#cqi-record" class="toc-h2 toc-link" data-title="CQI Record">CQI Record</a>
+                  </li>
+                  <li>
+                    <a href="#audit-log" class="toc-h2 toc-link" data-title="Audit Log">Audit Log</a>
                   </li>
                   <li>
                     <a href="#diagnosis-code-chapter" class="toc-h2 toc-link" data-title="Diagnosis Code Chapter">Diagnosis Code Chapter</a>
@@ -413,8 +427,12 @@ also includes a readonly field with the presentation name for the designation co
 
 <ul>
 <li>patient_transport_outcome: Arbitrary 255 max length string.</li>
-<li>risk_cabin_altitude_restriction: See incident model </li>
+<li>risk_cabin_altitude_restriction: See patient model </li>
+<li>handover_recipient: See incident model</li>
+<li>datetime_departed: See incident model</li>
 </ul>
+<h3 id='added-section-for-audit-logs-management'>Added section for Audit Logs management</h3>
+<p>Methods for GETting and POSTing Audit Logs are now described in the api docs.</p>
 <h2 id='updates-week-4-may-2018'>Updates Week 4 - May 2018</h2><h3 id='added-first_contact_datetime-and-first_contact_site-to-incident-model'>Added first_contact_datetime and first_contact_site to Incident model</h3>
 <p>See Incident model description for more information.</p>
 <h2 id='updates-week-3-may-2018'>Updates Week 3 - May 2018</h2><h3 id='handover_datetime-attribute-added-to-incident-model'>handover_datetime attribute added to Incident model</h3>
@@ -1304,6 +1322,63 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <td>The ID of the Patient to delete</td>
 </tr>
 </tbody></table>
+<h1 id='audit-logs'>Audit Logs</h1>
+<p><strong>Admin Only</strong> This endpoints are only to be usd by users of type Admin.</p>
+<h2 id='audit-logs-collection'>Audit Logs Collection</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/audit-logs"</span>
+  -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured as a typical paginated response, where each member of the data array is structured like follows:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="s2">"viewed Patient #1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"action_html"</span><span class="p">:</span><span class="s2">"viewed &lt;a href=</span><span class="se">\"</span><span class="s2">/incidents/1</span><span class="se">\"</span><span class="s2">&gt;Patient #1&lt;/a&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-06-27 13:04:23"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"device"</span><span class="p">:</span><span class="s2">"HALO Portal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event"</span><span class="p">:</span><span class="s2">"view_incident"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"location"</span><span class="p">:</span><span class="s2">"Unknown location"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"longitude"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"text"</span><span class="p">:</span><span class="s2">"2018-06-27 13:04:23 admin viewed Patient #1 HALO Portal from Unknown location"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"text_html"</span><span class="p">:</span><span class="s2">"&lt;span class=</span><span class="se">\"</span><span class="s2">date</span><span class="se">\"</span><span class="s2">&gt;2018-06-27 13:04:23&lt;/span&gt; &lt;span class=</span><span class="se">\"</span><span class="s2">username</span><span class="se">\"</span><span class="s2">&gt;admin&lt;/span&gt; &lt;span class=</span><span class="se">\"</span><span class="s2">action</span><span class="se">\"</span><span class="s2">&gt;viewed Patient #1&lt;/span&gt; &lt;span class=</span><span class="se">\"</span><span class="s2">device</span><span class="se">\"</span><span class="s2">&gt;on HALO Portal&lt;/span&gt; from &lt;span class=</span><span class="se">\"</span><span class="s2">location</span><span class="se">\"</span><span class="s2">&gt;Unknown location&lt;/span&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"admin"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET HOST/api/v1/audit-logs</code></p>
+
+<p>Get a collection of audit logs. See below supported query parameters to filter the results. </p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>-</td>
+<td>The user_id who triggered the Audit log</td>
+</tr>
+<tr>
+<td>event_key</td>
+<td>-</td>
+<td>The type of action to be returned. Valid actions are: &#39;login&#39;, &#39;create_incident&#39;, &#39;edit_incident&#39;, &#39;view_incident&#39;</td>
+</tr>
+<tr>
+<td>date_from</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>date_to</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id='create-audit-log'>Create Audit Log</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p>Create a new Audit log. See Audit Log model for supported fields.</p>
 <h1 id='models'>Models</h1>
 <p>The following section describes the Models that are used through the API and their corresponding fields</p>
 <h2 id='incident'>Incident</h2>
@@ -1791,6 +1866,50 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 | 50        | &gt; 5 seconds    |</p>
 <h2 id='cqi-record'>CQI Record</h2>
 <p>// TODO: help would be appreciated</p>
+<h2 id='audit-log'>Audit Log</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device</td>
+<td>string(255)</td>
+<td>Required. Its the name of the device reporting the audit log.</td>
+</tr>
+<tr>
+<td>event</td>
+<td>enum</td>
+<td>Required. valid values: &#39;login&#39;, &#39;create_incident&#39;, &#39;edit_incident&#39;, &#39;view_incident&#39;</td>
+</tr>
+<tr>
+<td>incident_id</td>
+<td>integer</td>
+<td>Optional. ID of the incident. Only required for certain event types.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>integer</td>
+<td>Optional. ID of the reporting user. If not provided, the logged in user id will be used.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>array</td>
+<td>Optional. If provided, it must include the following subfields:</td>
+</tr>
+<tr>
+<td>location.latitude</td>
+<td>string</td>
+<td>Latitude of the intended location</td>
+</tr>
+<tr>
+<td>location.longitude</td>
+<td>string</td>
+<td>Longitude of the intended location.</td>
+</tr>
+</tbody></table>
 <h2 id='diagnosis-code-chapter'>Diagnosis Code Chapter</h2>
 <table><thead>
 <tr>
