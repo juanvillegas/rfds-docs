@@ -1,6 +1,6 @@
 # Audit Logs
 
-**Admin Only** This endpoints are only to be usd by users of type Admin.
+**Admin Only** This endpoints are only to be used by users of type Admin.
 
 ## Audit Logs Collection
 
