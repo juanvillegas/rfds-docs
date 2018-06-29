@@ -239,6 +239,9 @@
             <a href="#news-and-updates" class="toc-h1 toc-link" data-title="News and Updates">News and Updates</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#updates-june-29th-2018" class="toc-h2 toc-link" data-title="Updates June 29th 2018">Updates June 29th 2018</a>
+                  </li>
+                  <li>
                     <a href="#updates-week-june-28th-2018" class="toc-h2 toc-link" data-title="Updates Week June 28th 2018">Updates Week June 28th 2018</a>
                   </li>
                   <li>
@@ -417,7 +420,16 @@ For example, to use the <em>/incidents</em> endpoint, the request should be made
 of <em>application/json</em>. All responses from the API will be valid JSON.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"HOST/api/v1/some/endpoint"</span>
   -H <span class="s2">"Authorization: Bearer token"</span> -H <span class="s2">"Accept: application/json"</span>
-</code></pre><h1 id='news-and-updates'>News and Updates</h1><h2 id='updates-week-june-28th-2018'>Updates Week June 28th 2018</h2><h3 id='designation-codes'>Designation Codes</h3>
+</code></pre><h1 id='news-and-updates'>News and Updates</h1><h2 id='updates-june-29th-2018'>Updates June 29th 2018</h2><h3 id='important-minor-updates-to-how-incidents-are-saved'>Important: minor updates to how Incidents are saved</h3>
+<p>We have implemented some &quot;dependencies&quot; for certain fields in the Incident model. As of now, the following dependencies 
+should be noted:
+- patient_evacuated: if <strong>patient_evacuated</strong> is set to <em>false</em>, the corresponding <strong>evacuation_datetime</strong> and 
+<strong>evac_code</strong> fields are set to null, even if a value is provided for them.</p>
+<h3 id='evacuation-codes'>Evacuation Codes</h3>
+<p>Similar to what we did for designation_code fields, <strong>evac_code</strong> field in the Incident model now only accepts
+a set of values. Validations will fail if a value that is not in the set is provided.
+See models section for accepted evacuation codes.</p>
+<h2 id='updates-week-june-28th-2018'>Updates Week June 28th 2018</h2><h3 id='designation-codes'>Designation Codes</h3>
 <p><strong>Breaking Changes</strong> Fields that deal with designation codes have just received a major update. We switched from 
 arbitrary text fields to only allowing a set of predefined designation codes. This means that clients must check the 
 corresponding documentation (see Incident Model description) for supported designation codes. The Incident model now
@@ -1593,6 +1605,72 @@ the fields indicated in the <a href="#obstetrics-record">Obstetrics Model Descri
 <td>updated_at</td>
 <td>timestamp</td>
 <td>-</td>
+</tr>
+</tbody></table>
+<h3 id='evacuation-codes'>Evacuation Codes</h3>
+<p><strong>Nice</strong> value will be available in Incident model as <strong>evac_code_nice</strong>.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Nice</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>T1</td>
+<td>T1 • Air, RFDS this base</td>
+</tr>
+<tr>
+<td>T2</td>
+<td>T2 • Air, RFDS other base</td>
+</tr>
+<tr>
+<td>T3</td>
+<td>T3 • Air, Charter</td>
+</tr>
+<tr>
+<td>T4</td>
+<td>T4 • Air, Commercial</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>T5 • Air, Rotary Wing</td>
+</tr>
+<tr>
+<td>T6</td>
+<td>T6 • Road, Queensland Ambulance Service</td>
+</tr>
+<tr>
+<td>T7</td>
+<td>T7 • Road, Other Ambulance Service</td>
+</tr>
+<tr>
+<td>T8</td>
+<td>T8 • Road, RFDS Vehicle</td>
+</tr>
+<tr>
+<td>T9</td>
+<td>T9 • Road, Private Vehicle</td>
+</tr>
+<tr>
+<td>T10</td>
+<td>T10 • Road, Commercial Vehicle</td>
+</tr>
+<tr>
+<td>T11</td>
+<td>T11 • Boat</td>
+</tr>
+<tr>
+<td>T12</td>
+<td>T12 • Other</td>
+</tr>
+<tr>
+<td>T13</td>
+<td>T13 • Transport Cancelled</td>
+</tr>
+<tr>
+<td>T14</td>
+<td>T14 • Transport of Non-RFDS Retrieval Team Only</td>
 </tr>
 </tbody></table>
 <h3 id='designation-codes'>Designation Codes</h3>
