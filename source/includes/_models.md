@@ -48,6 +48,27 @@ The following section describes the Models that are used through the API and the
 | created_at                        | timestamp   | -                                                                                             |
 | updated_at                        | timestamp   | -                                                                                             |
 
+### Evacuation Codes
+
+**Nice** value will be available in Incident model as **evac_code_nice**.
+
+| Code | Nice                                            |
+| ---- | ----                                            |
+| T1   | T1 • Air, RFDS this base                        |
+| T2   | T2 • Air, RFDS other base                       |
+| T3   | T3 • Air, Charter                               |
+| T4   | T4 • Air, Commercial                            |
+| T5   | T5 • Air, Rotary Wing                           |
+| T6   | T6 • Road, Queensland Ambulance Service         |
+| T7   | T7 • Road, Other Ambulance Service              |
+| T8   | T8 • Road, RFDS Vehicle                         |
+| T9   | T9 • Road, Private Vehicle                      |
+| T10  | T10 • Road, Commercial Vehicle                  |
+| T11  | T11 • Boat                                      |
+| T12  | T12 • Other                                     |
+| T13  | T13 • Transport Cancelled                       |
+| T14  | T14 • Transport of Non-RFDS Retrieval Team Only |
+
 ### Designation Codes
 
 | Code | Nice                                   |

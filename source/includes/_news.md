@@ -1,5 +1,20 @@
 # News and Updates
 
+## Updates June 29th 2018
+
+### Important: minor updates to how Incidents are saved
+
+We have implemented some "dependencies" for certain fields in the Incident model. As of now, the following dependencies 
+should be noted:
+- patient_evacuated: if **patient_evacuated** is set to _false_, the corresponding **evacuation_datetime** and 
+**evac_code** fields are set to null, even if a value is provided for them.
+
+### Evacuation Codes
+
+Similar to what we did for designation_code fields, **evac_code** field in the Incident model now only accepts
+a set of values. Validations will fail if a value that is not in the set is provided.
+See models section for accepted evacuation codes.
+
 ## Updates Week June 28th 2018
 
 ### Designation Codes
